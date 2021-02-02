@@ -200,11 +200,7 @@ namespace BowlingCalculatorAPI.Model
                         }
                         break;
                 }
-                if (frame.Shots <= 0)
-                {
-                   
-                    
-                }
+               
               
             }
             return frame;

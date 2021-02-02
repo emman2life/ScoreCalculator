@@ -12,7 +12,7 @@
     "IIS Express": {
       "commandName": "IISExpress",
       "launchBrowser": true,
-      "launchUrl": "api/bowling",
+      "launchUrl": "api/bowling/get",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
@@ -20,7 +20,7 @@
     "BowlingCalculatorAPI": {
       "commandName": "Project",
       "launchBrowser": true,
-      "launchUrl": "api/bowling",
+      "launchUrl": "api/bowling/get",
       "applicationUrl": "http://localhost:5000",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"

@@ -27,10 +27,13 @@ namespace BowlingCalculatorAPI.Model
             if (_frameList[position].Status == FrameStatus.Skrike || _frameList[position].Status == FrameStatus.Open || _frameList[position].Status == FrameStatus.Spare)
             {
                 _frameList[position].DisplayPins = -1;
+              
                 _frameList[position].FrameComputed = true;
+                
+             
                 if (!_frameList[position].TenthFrame)
                 position++;
-                _frameList[position].FrameScore = +score;
+               _frameList[position].FrameScore += score;
                 _frameList[position].DisplayPins = PINS;
             }
 
@@ -49,6 +52,7 @@ namespace BowlingCalculatorAPI.Model
                 if(_frameList[i].Status == FrameStatus.Spare)
                 {
                     _frameList[i].FrameScore = _frameList[i].FrameResult + GetSpareValueBonus(i);
+                    _frameList[i].FrameComputed = true;
                 }
                 if (_frameList[i].Status == FrameStatus.Open)
                 {
@@ -56,21 +60,25 @@ namespace BowlingCalculatorAPI.Model
                 }
                 if (_frameList[i].Status == FrameStatus.Skrike)
                 {
+                   
                     if (!_frameList[i].TenthFrame)
                     {
                         if (_frameList[i + 1].Status != FrameStatus.Skrike)
                         {
                             _frameList[i].FrameScore = _frameList[i].FrameResult + _frameList[i + 1].FrameResult;
+                           
                         }
                         else
                         {
                             if (!_frameList[i + 1].TenthFrame)
                             {
                                 _frameList[i].FrameScore = _frameList[i].FrameResult + _frameList[i + 1].FirstShotScore + _frameList[i + 2].FirstShotScore;
+                               
                             }
                             else
                             {
                                 _frameList[i].FrameScore = _frameList[i].FrameResult + _frameList[i + 1].FirstShotScore+ _frameList[i + 1].SecondShotScore;
+                               
                             }
                             
                         }
